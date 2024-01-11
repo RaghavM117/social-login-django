@@ -1,0 +1,32 @@
+<!-- base.html -->
+<html>
+    <head>
+        <title>{% block title %}{% endblock title %}</title>
+        {% block css %} {% endblock css %}
+    </head>
+    <body>
+        <h1>Django Social Login App</h1>
+        <hr/>
+        {% if user.is_authenticated %}
+        You are signed in as <strong>{{ user.username }}</strong> /
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">logout</button>
+        </form>
+        {% else %}
+        <a href="{% url 'login' %}">login</a> /
+        {% endif %}
+        <hr>
+
+        {% block content %} {% endblock content %}
+
+        {% block javascript %} {% endblock javascript %}
+
+        <footer>
+            <hr>
+            <small>
+                {{user.username}}
+            </small>
+        </footer>
+    </body>
+</html>
