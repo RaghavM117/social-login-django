@@ -146,12 +146,12 @@ LOGOUT_URL= 'logout'
 LOGIN_REDIRECT_URL = '/'
 
 #Social Auth Login github
-SOCIAL_AUTH_GITHUB_KEY = str(os.getenv('1c571ce21c38d80b7de4')) #Add your client key
-SOCIAL_AUTH_GITHUB_SECRET = str(os.getenv('9b7f5da33549be082bb2de885e34da5c68f83707')) #Add Your client secret
+SOCIAL_AUTH_GITHUB_KEY = str(os.getenv('SECRET_KEY')) #Add your client key
+SOCIAL_AUTH_GITHUB_SECRET = str(os.getenv('SECRET_KEY')) #Add Your client secret
 
 #Social Auth login google
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = str(os.getenv('376686746614-ukh9jdhor98jmsmns7qk5ccpgruc3eoe.apps.googleusercontent.com'))
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = str(os.getenv('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'))
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = str(os.getenv('SECRET_KEY'))
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = str(os.getenv('SECRET_KEY'))
 
 #email configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
