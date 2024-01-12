@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,9 +80,9 @@ TEMPLATES = [
 ]
 
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.facebook.FacebookOAuth2',
-    'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    
 
     'django.contrib.auth.backends.ModelBackend',
 )
@@ -134,21 +137,30 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'home'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URK = '/media/'
 
-#Social Auth login facebook
-SOCIAL_AUTH_FACEBOOK_KEY = '2148506308827121' #App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = 'f11711b48327f48773ec7af0cc7b9f25' #App Secret
+LOGIN_URL = 'login'
+LOGOUT_URL= 'logout'
+LOGIN_REDIRECT_URL = '/'
 
 #Social Auth Login github
-SOCIAL_AUTH_GITHUB_KEY = '1c571ce21c38d80b7de4'
-SOCIAL_AUTH_GITHUB_SECRET = '9b7f5da33549be082bb2de885e34da5c68f83707'
+SOCIAL_AUTH_GITHUB_KEY = str(os.getenv('1c571ce21c38d80b7de4')) #Add your client key
+SOCIAL_AUTH_GITHUB_SECRET = str(os.getenv('9b7f5da33549be082bb2de885e34da5c68f83707')) #Add Your client secret
 
-#Social Auth login twitter
-SOCIAL_AUTH_TWITTER_KEY = 'NDlqUjhpMGw3OV81eGR4bnR4czA6MTpjaQ'
-SOCIAL_AUTH_TWITTER_SECRET = 'yUwRUJMNbs2KbSJS5dgJIk2xHjKlvr-oNxC3mfJJWNrrTqx6bk'
+#Social Auth login google
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = str(os.getenv('376686746614-ukh9jdhor98jmsmns7qk5ccpgruc3eoe.apps.googleusercontent.com'))
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = str(os.getenv('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'))
+
+#email configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = str(os.getenv('shadow70107@gmail.com'))
+EMAIL_HOST_PASSWORD = str(os.getenv('rtfm sqhu ibqs ztsl'))
+
+SESSION_COOKIE_AGE = 60*60*24*30
 
 #Social Auth Login
 SOCIAL_AUTH_LOGIN_ERROR_URL = '/settings/'
