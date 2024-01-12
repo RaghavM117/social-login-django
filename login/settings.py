@@ -140,6 +140,7 @@ STATIC_URL = 'static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URK = '/media/'
 
+<<<<<<< HEAD
 LOGIN_URL = 'login'
 LOGOUT_URL= 'logout'
 LOGIN_REDIRECT_URL = '/'
@@ -161,6 +162,19 @@ EMAIL_HOST_USER = str(os.getenv('shadow70107@gmail.com'))
 EMAIL_HOST_PASSWORD = str(os.getenv('rtfm sqhu ibqs ztsl'))
 
 SESSION_COOKIE_AGE = 60*60*24*30
+=======
+#Social Auth login facebook
+SOCIAL_AUTH_FACEBOOK_KEY = '' #App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '' #App Secret
+
+#Social Auth Login github
+SOCIAL_AUTH_GITHUB_KEY = ''
+SOCIAL_AUTH_GITHUB_SECRET = ''
+
+#Social Auth login twitter
+SOCIAL_AUTH_TWITTER_KEY = ''
+SOCIAL_AUTH_TWITTER_SECRET = ''
+>>>>>>> 80232e6de02eec38dcd3124226be67845d5faf68
 
 #Social Auth Login
 SOCIAL_AUTH_LOGIN_ERROR_URL = '/settings/'
