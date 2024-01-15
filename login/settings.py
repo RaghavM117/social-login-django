@@ -163,17 +163,6 @@ EMAIL_HOST_PASSWORD = str(os.getenv('YOUR_APP_PASSWORD'))
 
 SESSION_COOKIE_AGE = 60*60*24*30
 =======
-#Social Auth login facebook
-SOCIAL_AUTH_FACEBOOK_KEY = '' #App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = '' #App Secret
-
-#Social Auth Login github
-SOCIAL_AUTH_GITHUB_KEY = ''
-SOCIAL_AUTH_GITHUB_SECRET = ''
-
-#Social Auth login twitter
-SOCIAL_AUTH_TWITTER_KEY = ''
-SOCIAL_AUTH_TWITTER_SECRET = ''
 >>>>>>> 80232e6de02eec38dcd3124226be67845d5faf68
 
 #Social Auth Login
